@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["xscriptor.com"],
   },
-  // Otras opciones de configuración aquí
+ 
 };
 
 export default nextConfig;
