@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# API-Only Project
+
+This project is an API-only setup built with Next.js and deployed on Vercel. It includes a subscription endpoint (`/api/newsletter`) that handles email subscriptions by receiving and validating email addresses. This project is designed for a standalone API deployment to work in tandem with a frontend hosted on a separate platform (e.g., Hostinger).
+
+## Project Structure
+
+The main components of the project include:
+
+api-only-project/ 
+├── app/ 
+│ └── api/ 
+│ └── newsletter/ 
+│ └── route.ts 
+├── prisma/ 
+│ └── schema.prisma 
+├── package.json 
+├── next.config.js 
+└── .env.example
+
+
+- **`app/api/newsletter/route.ts`**: Handles the API endpoint for email subscriptions (`POST /api/newsletter`).
+- **`prisma/schema.prisma`**: Defines the Prisma database schema.
+- **`.env.example`**: Example environment file listing necessary environment variables.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Node.js** and **npm** installed on your system.
+- **Git** for version control.
+- A **database** compatible with Prisma (e.g., MySQL, PostgreSQL).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+   git clone https://github.com/your-username/api-only-project.git
+   cd api-only-project
 
-## Learn More
+2. Install dependencies:
+    ```bash
+    npm install
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. set up environment variables:
+Create a .env file based on .env.example and add your DATABASE_URL and other required variables.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Run Prisma migrations and generate the Prisma client:
 
-## Deploy on Vercel
+    ```bash
+    npx prisma migrate deploy
+    npx prisma generate
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Start the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**npm** run **dev**
+
+
+Deployment
+This API is designed to be deployed on Vercel. Follow these steps:
+
+Push your code to GitHub.
+Connect your GitHub repository to Vercel.
+Set up environment variables in Vercel.
+Deploy the project and obtain your public URL.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
