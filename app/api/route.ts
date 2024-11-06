@@ -5,10 +5,12 @@ import { NextResponse } from 'next/server';
 // Crear una instancia única de Prisma en desarrollo para evitar múltiples conexiones
 const prisma = global.prisma || new PrismaClient();
 
-if (process.env.NODE_ENV !== 'production') global.prisma = prisma;
+if (process.env.NODE_ENV !== 'production') {
+  global.prisma = prisma;  // Esto asigna la instancia a global.prisma si estamos en desarrollo
+}
 
 export async function POST(request: Request) {
-  console.log("API Newsletter POST endpoint was called"); // Agrega este log para verificar que el código entra a la función POST
+  console.log("API Newsletter POST endpoint was called");
   const { email } = await request.json();
 
   // Validar que el email no esté vacío y tenga un formato adecuado
