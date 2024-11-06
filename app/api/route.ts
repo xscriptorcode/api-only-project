@@ -2,12 +2,6 @@
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
-
-declare global {
-  // Esto asegura que `prisma` esté disponible globalmente en desarrollo
-  var prisma: PrismaClient | undefined;
-}
-
 // Crear una instancia única de Prisma en desarrollo para evitar múltiples conexiones
 const prisma = global.prisma || new PrismaClient();
 
